@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <div class="calendar">
+
+    <div class="header">
+      <button class="nav-btn" onclick="prevMonth()">❮</button>
+      <h2 id="title"></h2>
+      <button class="nav-btn" onclick="nextMonth()">❯</button>
+    </div>
+
+    <div id="days"></div>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="sidebar">
+
+    <div class="sidebar-top">
+      <div class="menu-container">
+        <span class="menu" onclick="toggleMenu()">≡</span>
+
+        <div id="dropdown" class="dropdown">
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

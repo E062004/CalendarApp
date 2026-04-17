@@ -1,0 +1,41 @@
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#fafafa;
+  font-family:sans-serif;
+}
+
+.auth-box{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  width:300px;
+  text-align:center;
+  box-shadow:0 5px 20px #dfa3d51a;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:blue;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+a{
+  color:blue;
+  text-decoration:none;
+}

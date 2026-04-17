@@ -1,0 +1,197 @@
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:linear-gradient(to right,#fff,#ffeef4);
+}
+
+/* MAIN LAYOUT */
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:30px;
+  padding:20px;
+}
+
+/* LEFT PANEL */
+.calendar{
+  width:600px;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(255,182,193,0.3);
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+/* NAV BUTTONS */
+.nav-btn{
+  background:#ffccd5;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.2s;
+}
+
+.nav-btn:hover{
+  background:#ffb3c1;
+}
+
+/* DAY ROWS */
+.day-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #eee;
+  padding:10px 0;
+}
+
+.date{
+  width:80px;
+  font-weight:600;
+}
+
+/* TASK AREA */
+.tasks{
+  flex:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* TASK ITEM */
+.task{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* COMPLETED TEXT */
+.completed{
+  text-decoration:line-through;
+  text-decoration-color:red;
+  color:red;
+}
+
+/* ADD BUTTON */
+.add-btn{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:2px solid black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  background:white;
+  transition:0.2s;
+}
+
+.add-btn:hover{
+  background:#ffe4ec;
+}
+
+/* RIGHT PANEL */
+.sidebar{
+  width:280px;
+  min-width:280px;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(255,182,193,0.2);
+  position:relative;
+}
+
+/* TOP MENU AREA */
+.sidebar-top{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:15px;
+}
+
+/* MENU ICON */
+.menu{
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* MENU CONTAINER */
+.menu-container{
+  position:relative;
+}
+
+/* DROPDOWN (FIXED) */
+.dropdown{
+  position:absolute;
+  top:35px;
+  right:0;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.15);
+  padding:10px;
+  display:none;
+  z-index:1000; /* 🔥 FIX */
+}
+
+/* DROPDOWN BUTTON */
+.dropdown button{
+  background:#ffccd5;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.dropdown button:hover{
+  background:#ffb3c1;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:10px;
+  margin-top:10px;
+}
+
+/* DAY NAMES */
+.dayname{
+  font-size:12px;
+  text-align:center;
+  font-weight:bold;
+  color:#555;
+}
+
+/* DATE CELLS */
+.grid div{
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:#ffe4ec;
+  font-size:13px;
+  transition:0.2s;
+}
+
+.grid div:hover{
+  background:#ffccd5;
+}
+
+/* COMPLETED DAY */
+.done{
+  background:#d4edda !important;
+  color:green;
+  font-weight:bold;
+}

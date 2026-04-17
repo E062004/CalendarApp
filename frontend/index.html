@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="card">
+
+  <h2 id="title">Login</h2>
+
+  <!-- LOGIN -->
+  <div id="loginForm">
+    <input id="loginEmail" placeholder="Email" required>
+    <input id="loginPassword" type="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- SIGNUP -->
+  <div id="signupForm" style="display:none;">
+    <input id="signupEmail" placeholder="Email" required>
+    <input id="signupPassword" type="password" placeholder="Password" required>
+    <button onclick="register()">Sign Up</button>
+  </div>
+
+  <div class="bottom-text">
+    <span id="toggleText">Don't have an account?</span>
+    <a href="#" onclick="toggleForm()">Register</a>
+  </div>
+
+</div>
+
+<script>
+// 🔄 TOGGLE
+function toggleForm() {
+  const login = document.getElementById("loginForm");
+  const signup = document.getElementById("signupForm");
+  const title = document.getElementById("title");
+  const text = document.getElementById("toggleText");
+
+  if (login.style.display !== "none") {
+    login.style.display = "none";
+    signup.style.display = "block";
+    title.innerText = "Sign Up";
+    text.innerText = "Already have an account?";
+  } else {
+    login.style.display = "block";
+    signup.style.display = "none";
+    title.innerText = "Login";
+    text.innerText = "Don't have an account?";
+  }
+}
+
+// 🔐 LOGIN
+async function login(){
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  const res = await fetch("/login",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({email, password})
+  });
+
+  const data = await res.json();
+  alert(data.msg || "Logged in");
+
+  if(data.userId){
+    localStorage.setItem("userId", data.userId);
+    window.location = "calendar.html";
+  }
+}
+
+// 📝 REGISTER
+async function register(){
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+
+  const res = await fetch("/register",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({email, password})
+  });
+
+  const data = await res.json();
+  alert(data.msg);
+
+  if(data.msg === "registered"){
+    toggleForm(); // go back to login
+  }
+}
+</script>
+
+</body>
+</html>
